@@ -5,7 +5,9 @@ import { useState } from "react";
 import { GeoJsonLayer } from "deck.gl";
 
 const Map = () => {
-  const jsonData = require("@/data/N02-20_RailroadSection.json");
+  const jsonData = require("@/data/N06-20_HighwaySection.json");
+
+  const [features, setFeatues] = useState(jsonData)
 
   const [viewState, setViewState] = useState({
     longitude: 139.7671365841117,
@@ -15,7 +17,7 @@ const Map = () => {
 
   const geoJsonLayer = new GeoJsonLayer({
     id: "geojson",
-    data: jsonData,
+    data: features,
     lineWidthMinPixels: 4,
     getLineColor: [69, 90, 100, 255],
   });
